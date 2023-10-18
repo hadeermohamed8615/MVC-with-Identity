@@ -1,0 +1,13 @@
+﻿<!--Strong Typed view-->
+@model Student
+@(Model as Student)
+
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="/Images/@Model.Image" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Id</h5>
+        <p class="card-text">@Model.Name"</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>

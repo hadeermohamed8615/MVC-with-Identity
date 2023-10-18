@@ -1,0 +1,27 @@
+﻿@model List<Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<br/>
+<br/>
+<a href="/Department/New" class="btn btn-outline-secondary">New</a>
+<br/>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Manger</th>
+    </tr>
+    @foreach(var d in Model)
+    {
+        <tr>
+            <td>@d.Id</td>
+            <td>@d.Name</td>
+            <td>@d.MangerName</td>
+        </tr>
+    }
+</table>
+

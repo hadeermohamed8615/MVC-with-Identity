@@ -1,0 +1,38 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "DeptWithBranch";
+}
+
+<h1>DeptWithBranch</h1>
+
+<h1 style="color:@ViewData["clr"]">@Model.Name</h1>
+
+<h3>@ViewData["msg"]</h3>
+
+<h3>@(int.Parse(@ViewData["no"].ToString()) + 100)</h3> <!-- 1 + 10 -->
+
+@*<select class="form-control">
+    @foreach (var b in (List<string>)ViewData["Brc"])
+    {
+        <option>@b</option>
+    }
+</select>*@
+<h1>@ViewData["name"]</h1>
+<select class="form-control">
+    @foreach (var b in ViewBag.brc)
+    {
+        <option>@b</option>
+    }
+</select>
+
+<!-- ViewData Dis
+  1-Must be type cast
+  2-Magic string
+-->
+
+<!-- ViewBag Adv
+    1-Dynamic 
+    ------DisAdv
+    1-Magic string
+
+-->

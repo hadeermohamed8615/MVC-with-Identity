@@ -1,0 +1,62 @@
+﻿@model List<Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<br />
+<br />
+<div id="div1" style="border : 2px dashed blue">
+
+</div>
+<a asp-action="New" asp-controller="Employee" class="btn btn-outline-secondary">New</a>
+<br />
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>DeptId</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var e in Model)
+    {
+        <tr>
+            <td>@e.Id</td>
+            <td>
+                <a href="#" onclick="GetDetails(@e.Id)">
+                    @e.Name
+                </a>
+              </td>
+            <td>@e.DeptId</td>
+            <td>
+                <a href="/Employee/Edit/@e.Id" class="btn btn-primary ">Edit</a><!--Aboslote -->
+                @*<a href="Edit/@e.Id">Edit</a> <!-- Relative-->*@
+            </td>
+            <td>
+                <a href="/Employee/Details/@e.Id" class="btn btn-primary ">Details</a><!--Aboslote -->
+                @*<a href="Edit/@e.Id">Edit</a> <!-- Relative-->*@
+            </td>
+        </tr>
+    }
+</table>
+@section Scripts{
+
+        <script src="~/lib/jquery/dist/jquery.min.js" ></script>
+      <script>
+        function GetDetails(empId){
+            console.log(empId)
+            event.preventDefault()
+            $.ajax({
+                url: "/Employee/Details/"+empId, //Employee/details/3
+                
+                success: function (result) {
+                    console.log(result)
+                    document.getElementById("div1").innerHTML = result
+                }
+            });
+        }
+
+       </script>
+}

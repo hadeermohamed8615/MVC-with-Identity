@@ -1,0 +1,17 @@
+﻿@*@using MenyaDemo.ViewModels*@
+@*@model MenyaDemo.ViewModels.DeptWithBranchesAndMSGColorVM*@4
+@model DeptWithBranchesAndMSGColorVM
+@{
+    ViewData["Title"] = "DeptWithBranchWithVM";
+}
+
+<h1>DeptWithBranchWithVM</h1>
+<h2>@Model.Msg</h2>
+<h1 style="color:@Model.Color">@Model.DeptName</h1>
+<select>
+    @foreach(var b in Model.Branches)
+    {
+        <option>@b</option>
+    }
+</select>
+

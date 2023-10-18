@@ -1,0 +1,25 @@
+﻿@model List<Student>
+
+
+@*@foreach(Student std in Model){
+    <div>
+        @std.Id<br/>
+        @std.Name<br/>
+        <img src="/Images/@std.Image"/>
+    
+    </div>
+
+}*@
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>   
+    </tr>
+    @foreach (var std in Model)
+    {
+        <tr>
+            <td>@std.Id</td>
+            <td>@std.Name</td>
+        </tr>
+    }
+</table>
